@@ -2,7 +2,9 @@ const resylt = document.querySelector('.resylt');
 const buttonPlus = document.querySelector('.counter__button-plus');
 const buttonReset = document.querySelector('.counter__button-reset');
 
-const opened_className = 'open';
+import { removeClassOpen } from "../script.js"
+import { addClassOpen } from "../script.js"
+
 let counter = 0;
 
 inner()
@@ -14,15 +16,9 @@ function inner() {
         addClassOpen(buttonReset);
     })
     buttonReset.addEventListener('click', function () {
-        this.classList.remove('open');
+        removeClassOpen(this);
         counter = 0;
         resylt.innerHTML = counter;
     })
 }
 
-function addClassOpen(name) {
-    if (name.classList.contains(opened_className)) {
-    } else {
-        name.classList.add(opened_className);
-    };
-}

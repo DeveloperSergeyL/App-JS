@@ -1,0 +1,32 @@
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.counter button {
+  width: 500px;
+  height: 100px;
+  border-radius: 20px;
+  color: #fff;
+}
+.counter__resylt {
+  margin-bottom: 36px;
+}
+.counter__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.counter__button-plus {
+  background-color: #4191FF;
+  margin-bottom: 35px;
+}
+.counter__button-reset {
+  display: none;
+  background-color: #D45366;
+}
+.counter .open {
+  display: block;
+}

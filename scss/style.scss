@@ -1,6 +1,7 @@
 @use './mod/reset.scss';
 @use './mod/header.scss';
 @use './mod/counter.scss';
+@use './mod/blog.scss';
 
 html {
     scroll-behavior: smooth;
@@ -12,14 +13,18 @@ body{
     font-size: 32px;
     letter-spacing: 0%;
 }
+h2 {
+    font-size: 60px;
+    margin-bottom: 100px;
+}
 .container {
     max-width: 1200px;
     margin: 0 auto;
 }
 section {
-    height: 500px;
+    height: 1200px;
     margin-bottom: 200px;
 }
-
-
-
+.open {
+    display: block;
+}

@@ -3,9 +3,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    h1 {
-    margin-bottom: 100px;
-    }
     button {
         width: 500px;
         height: 100px;
@@ -30,7 +27,7 @@
         display: none;
         background-color: #D45366;
     }
-}
-.open {
-    display: block;
+        .open {
+            display: block;
+        }
 }
