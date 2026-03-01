@@ -1,4 +1,6 @@
-import { togglePopup } from "./popup.js";
+import { togglePopup, POPUP_OPENED_CLASSNAME, popupNode } from "./popup.js";
+import { removeClassOpen } from "../script.js";
+import { addClassOpen } from "../script.js";
 
 const VALUE_GOOD = 'expense-info__state-value--good';
 const VALUE_BAD = 'expense-info__state-value--bad';
@@ -11,7 +13,6 @@ const expenseListValue = document.querySelector('.expense-form__list');
 const expenseTotalValueNode = document.querySelector('.expense-info__total-value');
 const expenseStateValueNode = document.querySelector('.expense-info__state-value');
 const expenseSLimitValueNode = document.querySelector('.expense-info__limit-value');
-const expenseChangeLimitButton = document.querySelector('.expense-info__limit-img-change');
 const expenseResetButton = document.querySelector('.expense__btn-reset');
 
 const popupSpendingInputNode = document.querySelector('.popup__spending-input');
@@ -75,24 +76,11 @@ function renderSum() {
     expenseTotalValueNode.innerHTML = `<span>${sum} руб.</span>`;
 }
 
-function changeClass(name) {
-    if (name.classList.contains(VALUE_GOOD)) {
-        let difference = sum - limit;
-        name.innerHTML = `все плохо (-${difference}руб)`;
-        name.classList.add(VALUE_BAD);
-        name.classList.remove(VALUE_GOOD);
-    } else {
-        name.innerHTML = `все хорошо`;
-        name.classList.add(VALUE_GOOD);
-        name.classList.remove(VALUE_BAD);
-    }
-}
-
 function checkingLimit() {
     let name = expenseStateValueNode;
     if (sum > limit) {
         let difference = sum - limit;
-        name.innerHTML = `все плохо (-${difference}руб)`;
+        name.innerHTML = `все плохо (-${difference} руб)`;
         name.classList.remove(VALUE_GOOD);
         name.classList.add(VALUE_BAD);
     } else {
@@ -108,7 +96,8 @@ expenseAddButton.addEventListener('click', function () {
     renderSum()
     renderExpense();
     checkingLimit()
-    removeSpendingInputValue()
+    removeSpendingInputValue();
+    addClassOpen(expenseResetButton);
 })
 
 function removeHistoryNode() {
@@ -120,7 +109,7 @@ function removeValue() {
     history = [];
 }
 function removeTotalValueNode() {
-    expenseTotalValueNode.innerHTML = '';
+    expenseTotalValueNode.innerHTML = '0 руб.';
 }
 expenseResetButton.addEventListener('click', function () {
     removeValue()
@@ -128,11 +117,12 @@ expenseResetButton.addEventListener('click', function () {
     removeHistoryNode();
     removeTotalValueNode()
     checkingLimit();
+    removeClassOpen(expenseResetButton);
 })
 
 function chengeLimit() {
     limit = Number(popupSpendingInputNode.value);
-    expenseSLimitValueNode.innerHTML = limit;
+    expenseSLimitValueNode.innerHTML = `${limit} руб.`;
     popupSpendingInputNode.value = '';
 }
 
@@ -141,3 +131,11 @@ popupChangeLimitButton.addEventListener('click', function () {
     togglePopup();
     checkingLimit();
 })
+
+document.addEventListener('keydown', function (event) {
+    if (popupNode.classList.contains(POPUP_OPENED_CLASSNAME)) {
+        if (event.key === 'Enter') {
+            popupChangeLimitButton.click();
+        }
+    }
+});

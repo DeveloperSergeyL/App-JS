@@ -3,13 +3,16 @@ const postTextInputNode = document.querySelector('.blog__input--post');
 const postsNode = document.querySelector('.blog__content');
 const blogButtom = document.querySelector('.blog__button');
 const validationMessage = document.querySelector('.validation-message');
+const postDeleteBtn = document.querySelector('.post__delete-btn');
 
 import { removeClassOpen } from "../script.js";
 import { addClassOpen } from "../script.js";
 
-const posts = [];
+let posts = [];
+let postId = 1;
 const TITLE_VALIDATION_LIMIT = 20;
 const TEXT_VALIDATION_LIMIT = 200;
+const MAX_VISIBLE_POSTS = 3;
 
 postTitelInputNode.addEventListener("input", function () {
     validation();
@@ -81,9 +84,10 @@ function ucFirst(name) {
 function addPost({ title, text }) {
     title = ucFirst(title);
     text = ucFirst(text);
-    posts.push({
-        title,
-        text
+    posts.unshift({
+        id: postId++,
+        title: title,
+        text: text
     })
 }
 function getPosts() {
@@ -106,14 +110,29 @@ function getFormattedLocalDateTime() {
 function renderPosts() {
     const posts = getPosts();
     let postsHTML = '';
-    posts.forEach(post => {
+    posts.slice(0, MAX_VISIBLE_POSTS).forEach(post => {
         postsHTML += `
-            <div class='post'>
-                <div class="post__data">${getFormattedLocalDateTime()}</div>
-                <h4 class="post__title">${post.title}</h4>
-                <p class="post__text">${post.text}</p></ >
+            <div class='post' data-id='${post.id}'>
+                <div class='post__content'>
+                    <div class="post__data">${getFormattedLocalDateTime()}</div>
+                    <h4 class="post__title">${post.title}</h4>
+                    <p class="post__text">${post.text}</p>
+                </div>
+                <div class="post__delete-btn">
+                    <img src="img/expenses/korzina.png" alt="Delete" class="post__img-delet"> 
+                </div>
             </div>
         `
     });
     postsNode.innerHTML = postsHTML;
 }
+
+
+document.addEventListener("click", function (e) {
+    const deleteBtn = e.target.closest('.post__delete-btn');
+    if (!deleteBtn) return;
+    const postElement = deleteBtn.closest('.post');
+    const postId = Number(postElement.dataset.id);
+    posts = posts.filter(post => post.id !== postId);
+    renderPosts();
+});

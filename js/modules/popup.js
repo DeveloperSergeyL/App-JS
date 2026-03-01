@@ -1,8 +1,8 @@
-const POPUP_OPENED_CLASSNAME = 'popup__change-limit-open';
+export const POPUP_OPENED_CLASSNAME = 'popup__change-limit-open';
 const BODY_FIXED_CLASSNAME = 'body-fixed';
 
 const bodyNode = document.querySelector('body');
-const popupNode = document.querySelector('.popup');
+export const popupNode = document.querySelector('.popup');
 const btnOpenNode = document.querySelector('.expense-info__limit-img-change');
 const popupContentNode = document.querySelector('.popup__content')
 const btnCloseNode = document.querySelector('.popup__close-btn');

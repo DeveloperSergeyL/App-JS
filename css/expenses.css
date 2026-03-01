@@ -16,6 +16,7 @@
   margin-bottom: 40px;
 }
 .expense__btn-reset {
+  display: none;
   width: 55%;
   font-weight: 400;
   line-height: 60px;

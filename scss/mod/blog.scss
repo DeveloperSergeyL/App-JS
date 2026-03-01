@@ -53,10 +53,15 @@
         width: 50%;
 
         .post {
+            display: flex;
+            align-items: center;
             width: 500px;
             line-height: 100%;
             margin-bottom: 50px;
             opacity: 1;
+            &__content{
+                width: 92%;
+            }
             &__data {
                 font-size: 25px;
                 color: #0094FF;
@@ -68,6 +73,16 @@
             }
             &__text {
                 font-size: 25px;
+            }
+            &__delete-btn{
+                display: flex;
+                width: 8%;
+                height: 100%;
+                background-color: #00000010;
+                cursor: pointer;
+            }
+            &__img-delet{
+                width: 40px;
             }
         }
     }

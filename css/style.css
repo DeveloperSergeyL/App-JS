@@ -205,10 +205,15 @@ table {
   width: 50%;
 }
 .blog__posts .post {
+  display: flex;
+  align-items: center;
   width: 500px;
   line-height: 100%;
   margin-bottom: 50px;
   opacity: 1;
+}
+.blog__posts .post__content {
+  width: 92%;
 }
 .blog__posts .post__data {
   font-size: 25px;
@@ -221,6 +226,16 @@ table {
 }
 .blog__posts .post__text {
   font-size: 25px;
+}
+.blog__posts .post__delete-btn {
+  display: flex;
+  width: 8%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.062745098);
+  cursor: pointer;
+}
+.blog__posts .post__img-delet {
+  width: 40px;
 }
 .blog__content {
   position: absolute;
@@ -256,6 +271,7 @@ table {
   margin-bottom: 40px;
 }
 .expense__btn-reset {
+  display: none;
   width: 55%;
   font-weight: 400;
   line-height: 60px;
@@ -482,7 +498,7 @@ h2 {
 }
 
 section {
-  height: 1200px;
+  height: 1500px;
   margin-bottom: 200px;
 }
 
