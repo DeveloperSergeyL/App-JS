@@ -23,6 +23,9 @@
   background-color: #4191FF;
   margin-bottom: 35px;
 }
+.counter__button-plus:hover {
+  background: #1565c0;
+}
 .counter__button-reset {
   display: none;
   background-color: #D45366;

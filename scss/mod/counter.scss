@@ -21,7 +21,9 @@
     &__button-plus {
         background-color: #4191FF;
         margin-bottom: 35px;
-
+        &:hover {
+            background: #1565c0;
+        }
     }
     &__button-reset {
         display: none;

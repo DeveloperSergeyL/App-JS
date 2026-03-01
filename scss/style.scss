@@ -2,6 +2,7 @@
 @use './mod/header.scss';
 @use './mod/counter.scss';
 @use './mod/blog.scss';
+@use './mod/expenses.scss';
 
 html {
     scroll-behavior: smooth;
@@ -12,6 +13,10 @@ body{
     font-weight: 700;
     font-size: 32px;
     letter-spacing: 0%;
+    
+}
+.body-fixed {
+    overflow: hidden;
 }
 h2 {
     font-size: 60px;

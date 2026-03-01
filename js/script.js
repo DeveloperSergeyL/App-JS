@@ -1,5 +1,8 @@
 import "./modules/counter.js"
 import "./modules/blog.js"
+import "./modules/expenses.js"
+
+import "./modules/popup.js"
 
 const opened_className = 'open';
 
