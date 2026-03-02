@@ -98,7 +98,7 @@ table {
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
-  margin: 20px 0 150px 0;
+  margin-top: 20px;
 }
 .header nav ul {
   display: flex;
@@ -112,12 +112,21 @@ table {
 .header nav ul li a:hover {
   opacity: 0.5;
 }
+.header .logo {
+  position: relative;
+  width: 200px;
+  height: 60px;
+}
+.header .logo .logo-img {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
 
 .counter {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 .counter button {
   width: 500px;
@@ -152,7 +161,6 @@ table {
 .blog {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 .blog__body {
@@ -256,7 +264,6 @@ table {
 .expense {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 .expense__body {
@@ -499,7 +506,9 @@ h2 {
 
 section {
   height: 1500px;
-  margin-bottom: 200px;
+  padding: 200px 0;
+  border-bottom: 2px solid #000;
+  border-radius: 10px;
 }
 
 .open {

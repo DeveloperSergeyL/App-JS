@@ -1,7 +1,6 @@
 .blog {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     &__body {
         display: flex;
@@ -24,8 +23,6 @@
         width: 500px;
         margin-bottom: 30px;
         padding: 0 20px;
-    }
-    &__input--title {
     }
     textarea {
         width: 500px;

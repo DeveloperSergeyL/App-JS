@@ -28,7 +28,9 @@ h2 {
 }
 section {
     height: 1500px;
-    margin-bottom: 200px;
+    padding: 200px 0;
+    border-bottom: 2px solid #000;
+    border-radius: 10px;
 }
 .open {
     display: block;

@@ -7,7 +7,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
-  margin: 20px 0 150px 0;
+  margin-top: 20px;
 }
 .header nav ul {
   display: flex;
@@ -20,4 +20,8 @@
 }
 .header nav ul li a:hover {
   opacity: 0.5;
+}
+.header .logo {
+  width: 200px;
+  height: 60px;
 }
