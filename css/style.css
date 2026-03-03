@@ -554,7 +554,7 @@ table {
   transform: rotate(45deg);
 }
 .movielist__section-movielist {
-  max-height: 850px;
+  max-height: 550px;
   overflow-y: auto;
 }
 .movielist__section-movielist::-webkit-scrollbar {
