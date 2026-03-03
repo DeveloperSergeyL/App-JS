@@ -112,10 +112,6 @@ table {
 .header nav ul li a:hover {
   opacity: 0.5;
 }
-.header .logo {
-  width: 200px;
-  height: 60px;
-}
 
 .counter {
   display: flex;
