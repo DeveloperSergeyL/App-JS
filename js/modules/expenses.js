@@ -5,6 +5,8 @@ import { addClassOpen } from "../script.js";
 const CLASS_VALUE_GOOD = 'expense-info__state-value--good';
 const CLASS_VALUE_BAD = 'expense-info__state-value--bad';
 const CLASS_ERROR = 'error';
+const CLASS_SHAKE = 'shake';
+
 
 const expenseSpendingInputNode = document.querySelector('.expense-form__spending-input');
 const expenseListInputNode = document.querySelector('.expense-form__list');
@@ -85,7 +87,8 @@ function checkingLimit() {
 
 function addClassError(name) {
     name.classList.add(CLASS_ERROR);
-    setTimeout(() => expenseSpendingInputNode.classList.remove(CLASS_ERROR), 1000);
+    name.classList.add(CLASS_SHAKE);
+    setTimeout(() => expenseSpendingInputNode.classList.remove(CLASS_SHAKE), 1000);
 }
 function removeClassError(name) {
     name.classList.remove(CLASS_ERROR);
