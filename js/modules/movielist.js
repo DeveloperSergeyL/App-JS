@@ -2,12 +2,14 @@
 const CLASS_ERROR = 'error';
 const CLASS_SHAKE = 'shake';
 const CLASS_CHEKED = 'cheked';
-let movies = [{ id: 4, name: 'Отступники' }, { id: 3, name: 'Волк с Уолл-Стрит' }, { id: 2, name: 'Остров проклятых' }, { id: 1, name: 'Начало' },];
+let movies = [{ id: 4, name: 'Отступники', status: '' }, { id: 3, name: 'Волк с Уолл-Стрит', status: '' }, { id: 2, name: 'Остров проклятых', status: '' }, { id: 1, name: 'Начало', status: '' },];
 let movieId = 5;
 
 const moviesInputNode = document.querySelector('.movielist__section-movieinput-input');
 const moviesBtnAdd = document.querySelector('.movielist__section-movieinput-button-add');
 const moviesMovieListNode = document.querySelector('.movielist__section-movielist');
+
+renderMovie();
 
 function addClassError(name) {
     name.classList.add(CLASS_ERROR);
@@ -39,7 +41,8 @@ function addMovie({ name }) {
     name = ucFirst(name);
     movies.unshift({
         id: movieId++,
-        name: name
+        name: name,
+        status: ''
     })
 }
 
@@ -60,7 +63,7 @@ function renderMovie() {
     let moviesHTML = '';
     movies.forEach(movie => {
         moviesHTML += `
-            <li class="movielist__movie" data-id='${movie.id}'>
+            <li class="movielist__movie ${movie.status}" data-id='${movie.id}'>
                 <input type="checkbox" name="option_${movie.id}" value="movie_${movie.id}" class="movielist__movie-checkbox" id='movie_${movie.id}'>
                 <label for="movie_${movie.id}" class="movielist__movie-name">${movie.name}</label>
                 <button class="movielist__movie-button-delete"></button>
@@ -91,14 +94,35 @@ document.addEventListener("click", function (e) {
     renderMovie();
 });
 
+function checkingStatys(arr) {
+    arr.forEach(movie => {
+        if (movie.status == CLASS_CHEKED) {
+            return;
+        }
+    })
+}
+
+function changeStatys(element) {
+    movies.forEach(movie => {
+        if (movie.id == element.dataset.id) {
+            if (movie.status == CLASS_CHEKED) {
+                movie.status = '';
+            } else {
+                movie.status = CLASS_CHEKED;
+            }
+        }
+    })
+}
+
 document.addEventListener("click", function (e) {
     const checkbox = e.target.closest('.movielist__movie-checkbox');
-    const checkboxName = e.target.closest('.movielist__movie-name');
     const deleteBtn = e.target.closest('.movielist__movie-button-delete');
 
     if (!checkbox || deleteBtn) return;
 
     const movieElement = checkbox.closest('.movielist__movie');
+
+    changeStatys(movieElement);
 
     movieElement.classList.toggle(CLASS_CHEKED);
 });

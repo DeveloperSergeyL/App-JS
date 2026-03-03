@@ -89,20 +89,14 @@
                 margin-left: 10px;
                 width: 15px;
             }
-
-            /* 2. Трек (фон) скроллбара */
             &::-webkit-scrollbar-track {
                 background: #f1f1f1;
                 border-radius: 10px;
             }
-
-            /* 3. Бегунок (ползунок) */
             &::-webkit-scrollbar-thumb {
                 background: #888;
                 border-radius: 10px;
             }
-
-            /* 4. Бегунок при наведении */
             &::-webkit-scrollbar-thumb:hover {
                 background: #555;
             }
@@ -115,6 +109,7 @@
         margin-right: 5px;
         margin-bottom: 3px;
         padding: 25px 30px;
+        cursor: pointer;
         &-checkbox {
             appearance: none;
             width: 25px;
@@ -122,9 +117,6 @@
             border-radius: 50%;
             margin-right: 20px;
             cursor: pointer;
-            &:checked{
-                background-color: #6532F8;
-            }
         }
         &-name {
             width: 100%;
@@ -158,6 +150,9 @@
 }
 .cheked{
     opacity: 0.3;
+    .movielist__movie-checkbox{
+        background-color: #6532F8;
+    }
     label{
         text-decoration: line-through;
     }
