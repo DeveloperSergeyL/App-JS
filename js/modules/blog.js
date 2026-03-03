@@ -3,7 +3,6 @@ const postTextInputNode = document.querySelector('.blog__input--post');
 const postsNode = document.querySelector('.blog__content');
 const blogButtom = document.querySelector('.blog__button');
 const validationMessage = document.querySelector('.validation-message');
-const postDeleteBtn = document.querySelector('.post__delete-btn');
 
 import { removeClassOpen } from "../script.js";
 import { addClassOpen } from "../script.js";
@@ -23,6 +22,11 @@ postTextInputNode.addEventListener("input", function () {
 
 
 blogButtom.addEventListener('click', function () {
+    if (!postTitelInputNode.value) {
+        validation();
+        return;
+    };
+    console.log(postTitelInputNode.value);
     const postFormUser = getPostFromUser();
     addPost(postFormUser);
     renderPosts();
