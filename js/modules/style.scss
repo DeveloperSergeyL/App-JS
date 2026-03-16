@@ -1,0 +1,53 @@
+@use './mod/reset.scss';
+@use './mod/header.scss';
+@use './mod/counter.scss';
+@use './mod/blog.scss';
+@use './mod/expenses.scss';
+@use './mod/movielist.scss';
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: "Manrope";
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: 0%;
+    
+}
+.body-fixed {
+    overflow: hidden;
+}
+h2 {
+    font-size: 60px;
+    margin-bottom: 100px;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+section {
+    height: 1500px;
+    padding: 200px 0;
+    border-bottom: 2px solid #000;
+    border-radius: 10px;
+}
+.open {
+    display: block;
+}
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+.shake {
+        animation: shake 0.4s ease-in-out;
+    }
+.error{
+    &::placeholder{
+        color: #da0202e3;
+    }
+}
